@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6735316506157539",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="앞으로 문제를 풀 때 쓸지도 모르는 STL들 중 대표적인 2개 : map, set mapmap과 set은 거의 비슷한 자료구조형태를 가지지만크게 다른 점 중 하나는 map은 2개의 데이터를 set은 1개의 데이터를 저장하고 있는 것이다. map의 자료구조는 트리(Tree)정확하게 얘기하면 이진트리더 정확하게 얘기하면 레드블랙트리(Red-Black Tree)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL map, set">
+<meta property="og:url" content="https://zisukim.github.io/posts/map-set/index.html">
+<meta property="og:site_name" content="I AM JISU">
+<meta property="og:description" content="앞으로 문제를 풀 때 쓸지도 모르는 STL들 중 대표적인 2개 : map, set mapmap과 set은 거의 비슷한 자료구조형태를 가지지만크게 다른 점 중 하나는 map은 2개의 데이터를 set은 1개의 데이터를 저장하고 있는 것이다. map의 자료구조는 트리(Tree)정확하게 얘기하면 이진트리더 정확하게 얘기하면 레드블랙트리(Red-Black Tree)">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-08T19:19:39.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STL map, set">
+<meta name="twitter:description" content="앞으로 문제를 풀 때 쓸지도 모르는 STL들 중 대표적인 2개 : map, set mapmap과 set은 거의 비슷한 자료구조형태를 가지지만크게 다른 점 중 하나는 map은 2개의 데이터를 set은 1개의 데이터를 저장하고 있는 것이다. map의 자료구조는 트리(Tree)정확하게 얘기하면 이진트리더 정확하게 얘기하면 레드블랙트리(Red-Black Tree)">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zisukim.github.io/posts/map-set/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>STL map, set | I AM JISU</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I AM JISU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Slow and steady wins the race.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+
+
+
+
+  
+
+<div class="category-all-header">
+    <ul class="menu">
+    <li class="menu-item menu-categories">
+        <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories
+    </li>
+    </ul>  
+    <div class="menu-item category-all">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/App/React-Native/">React Native</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/SwiftUI/">SwiftUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Languages/">Languages</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test1/">test1</a><span class="category-list-count">1</span></li></ul>
+    </div>
+</div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/map-set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jisu Kim">
+      <meta itemprop="description" content="What I am interested in and love to ❤️">
+      <meta itemprop="image" content="/images/me3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I AM JISU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">STL map, set
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-06-05 13:59 13:59:00" itemprop="dateCreated datePublished" datetime="2015-06-05T13:59:00+09:00">2015-06-05 13:59</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/posts/map-set/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/map-set/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>앞으로 문제를 풀 때 쓸지도 모르는 STL들 중 대표적인 2개 : map, set</p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>map과 set은 거의 비슷한 자료구조형태를 가지지만<br>크게 다른 점 중 하나는 map은 2개의 데이터를 set은 1개의 데이터를 저장하고 있는 것이다.</p>
+<p>map의 자료구조는 트리(Tree)<br>정확하게 얘기하면 이진트리<br>더 정확하게 얘기하면 레드블랙트리(Red-Black Tree)<br>(오늘은 트리 자료구조를 공부하는 시간이 아니므로 트리에 관한 설명은 스킵할게용)</p>
+<p>우리는 map을 다음의 조건을 가질 때 사용한다.</p>
+<ol>
+<li>정렬된 데이터들의 집합이 필요할 때</li>
+<li>검색이 빠른 속도로 이루어져야할 때</li>
+<li>삽입과 삭제가 빈번하게 일어나지 않을 때</li>
+<li>중복된 값을 허용하지 않을 때</li>
+</ol>
+<p>정렬된 데이터를 가지고 있고 검색이 vector(array)보다 빠른 이유가 트리 형태로 데이터를 가지고 있기 때문이다.<br>즉 map에서 우리가 찾고자 하는 값(key)을 검색하고자 할 때 vector처럼 처음부터 끝까지 뒤져야 하는 (linear time)이 아니라<br>이진트리의 검색 방법을 사용하여 <strong>빠른 시간 ($log n$)</strong>에 찾을 수 있다.</p>
+<p>선언 방법은 다음과 같다<br>map &lt; key의 타입, value의 타입 &gt; m;<br>사전에서<br>“치킨”라는 단어를 찾아보니 “닭고기를튀긴것”라는 뜻을 알 수 있었다.<br>이 때 “치킨”는 key값이며 뜻은 “닭고기를튀긴것”이다.</p>
+<p>데이터를 삽입하는 방법은 단순하다.<br>map &lt; string, string &gt; m;    // key와 value모두 string의 형태이므로</p>
+<p>m[“치킨”] = “닭고기를튀긴것”;</p>
+<p>탐색하여 value값을 출력하는 것도 매우 간단하다.<br>cout&lt;&lt;m[“치킨”]&lt;&lt;endl;<br>을 하게 되면 “닭고기를튀긴것”이라는 문자열이 출력된다.</p>
+<ol>
+<li>베스트셀러<br><a href="https://www.acmicpc.net/problem/1302" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1302</a> </li>
+</ol>
+<p>책의 제목이 입력된 빈도수가 가장 큰 책의 제목을 출력하면 되는 문제이다.<br>map 자료형을 선언하고 데이터를 삽입하는 것은 쉽게 구현했을 것이다.<br>최대 빈도수를 구하기 위해서는 map에 저장된 모든 컨테이너를 돌려보며 찾아야 한다.</p>
+<p>이 때 우리는 iterator(반복자)를 사용한다.<br>벡터는 index를 integer형태로<br>for(int i = 0; i&lt;v.size(); ++i)<br>로 구현할 수 있지만 맵은 조금 다른 변수를 사용하여 모든 데이터를 살펴보아야 한다.<br>이 문제의 경우</p>
+<p>map &lt; string, int &gt; m;</p>
+<p>map &lt; string, int &gt; ::iterator it;   // 뒤져보고자 하는 map의 타입을 똑같이 선언해줘야한다.</p>
+<p>for(it = m.begin(); it != m.end(); ++it)<br>it는 m의 맨 처음위치를 가리키고 있으며 it가 맨 끝에 올 때까지 돌릴 것이며<br>it++으로 인해 다음 컨테이너를 살펴볼 수 있는 것이다.<br>it를 주소값이라고 생각하면 이해하기 쉽다.<br>객체 때 배웠던 것처럼<br>*it를 출력하면 it가 가리키고 있는 곳의 데이터 값이 출력된다.<br>map의 경우 두 개의 데이터 값을 가지고 있다.<br>it, 즉 주소값을 이용하여 두 개의 데이터 값에 접근하는 방법은 다음과 같다</p>
+<p>(<em>it).first<br>이것은 it-&gt;first와 같다<br>(</em>it).second<br>이것은 it-&gt;second와 같다</p>
+<p>(예제 입력값에 의하면)<br>it가 “top”을 가리키는 위치에 있다면<br>it-&gt;first 는 “top”<br>it-&gt;second는 top의 빈도수인 4가 저장되어 있는 것이다.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _CONSOLE</span></span><br><span class="line">    freopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">string</span> in;</span><br><span class="line">    <span class="built_in">map</span> &lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line">    <span class="built_in">map</span> &lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; ::iterator it;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; in;</span><br><span class="line">        m[in] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mmax = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span> ans;</span><br><span class="line">    <span class="keyword">for</span> (it = m.begin(); it != m.end(); ++it)</span><br><span class="line">        <span class="keyword">if</span> (it-&gt;second &gt; mmax)&#123;</span><br><span class="line">            mmax = it-&gt;second;</span><br><span class="line">            ans = it-&gt;first;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>나는야 포켓몬 마스터 이다솜<br><a href="https://www.acmicpc.net/problem/1620" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1620</a> </li>
+</ol>
+<p>다시 한번 강조해 주고 싶은 것은<br>map을 통해 <strong>$log n$시간에 겁색할 수 있는 값은</strong> <span style="color:red">key</span>값이다.<br>value값을 $log n$시간에 검색할 순 없다.<br>value값을 검색하려면 반복자를 사용하여 처음부터 끝까지 뒤져보는 방법 뿐이다.</p>
+<p>이 문제에서 나오는 query는 문자열이기도, 숫자이기도 하다.<br>문자열, 숫자 모두 key값이어야 한다는 것이다.<br>그러므로 <strong>map 2개를 선언하여 하나는 문자열을 검색하는 데에 하나는 숫자를 검색하는 데에 사용</strong>한다.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _CONSOLE</span></span><br><span class="line">    freopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">map</span> &lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; findStr;</span><br><span class="line">    <span class="built_in">map</span> &lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; findNum;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;</span><br><span class="line">        <span class="built_in">string</span> name;</span><br><span class="line">        <span class="built_in">string</span> number = to_string(i);</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name;</span><br><span class="line">        findStr[name] = number;</span><br><span class="line">        findNum[number] = name;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)&#123;</span><br><span class="line">        <span class="built_in">string</span> q;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; q;</span><br><span class="line">        <span class="keyword">if</span> (findStr.count(q))</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; findStr[q] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; findNum[q] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>물론 map &lt; int, string &gt; m1, map&lt; string, int &gt; m2; 로 구현해도 된다.</p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>set은 map과 다르게 한 개의 데이터만 저장한다.</p>
+<p>즉 value값이 존재하지 않고 key값만 저장하는 것이다.<br>한 개의 데이터를 저장하기 때문에 벡터와 비슷하게 느껴질 수 있다.<br>하지만 구조자체는 map과 마찬가지로 트리로 구현되어 있기 때문에<br>(잠시 위에서 끌어오겠심)</p>
+<ol>
+<li>정렬된 데이터들의 집합이 필요할 때</li>
+<li>검색이 빠른 속도로 이루어져야할 때</li>
+<li>삽입과 삭제가 빈번하게 일어나지 않을 때</li>
+<li>중복된 값을 허용하지 않을</li>
+</ol>
+<p>때 사용된다.<br>set에 관련된 문제는 딱히 못찾아서 없심<br>수고하셨어욤</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/최대-직사각형-넓이-구하기/" rel="next" title="최대 직사각형 넓이 구하기">
+                <i class="fa fa-chevron-left"></i> 최대 직사각형 넓이 구하기
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/최대공약수-최소공배수/" rel="prev" title="최대공약수, 최소공배수">
+                최대공약수, 최소공배수 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/me3.jpeg" alt="Jisu Kim">
+            
+              <p class="site-author-name" itemprop="name">Jisu Kim</p>
+              <div class="site-description motion-element" itemprop="description">What I am interested in and love to ❤️</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">144</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set"><span class="nav-number">2.</span> <span class="nav-text">set</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jisu Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://zisu-dev.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zisukim.github.io/posts/map-set/";
+    this.page.identifier = "posts/map-set/";
+    this.page.title = 'STL map, set';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://zisu-dev.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

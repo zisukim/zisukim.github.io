@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6735316506157539",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="Training set and Test setTraining and Test Sets  테스트 세트는 어떻게 해야 함?  의미 있는 결과가 될 수 있도록 겁나 커야함. 트레이닝 세트와 같은 특성을 가져야함. 어떻게 해야 이럴 수 있을까?   트레이닝 세트로 학습을 하고 테스트 세트로 평가를 함.  이 때 주의해야할 점은 테스트 세트로 학습을 하지 말라는 것">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GDG 3주차">
+<meta property="og:url" content="https://zisukim.github.io/posts/gdg-3/index.html">
+<meta property="og:site_name" content="I AM JISU">
+<meta property="og:description" content="Training set and Test setTraining and Test Sets  테스트 세트는 어떻게 해야 함?  의미 있는 결과가 될 수 있도록 겁나 커야함. 트레이닝 세트와 같은 특성을 가져야함. 어떻게 해야 이럴 수 있을까?   트레이닝 세트로 학습을 하고 테스트 세트로 평가를 함.  이 때 주의해야할 점은 테스트 세트로 학습을 하지 말라는 것">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-27T22:58:38.206Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GDG 3주차">
+<meta name="twitter:description" content="Training set and Test setTraining and Test Sets  테스트 세트는 어떻게 해야 함?  의미 있는 결과가 될 수 있도록 겁나 커야함. 트레이닝 세트와 같은 특성을 가져야함. 어떻게 해야 이럴 수 있을까?   트레이닝 세트로 학습을 하고 테스트 세트로 평가를 함.  이 때 주의해야할 점은 테스트 세트로 학습을 하지 말라는 것">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zisukim.github.io/posts/gdg-3/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GDG 3주차 | I AM JISU</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I AM JISU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Slow and steady wins the race.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+
+
+
+
+  
+
+<div class="category-all-header">
+    <ul class="menu">
+    <li class="menu-item menu-categories">
+        <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories
+    </li>
+    </ul>  
+    <div class="menu-item category-all">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/App/React-Native/">React Native</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/SwiftUI/">SwiftUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Languages/">Languages</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test1/">test1</a><span class="category-list-count">1</span></li></ul>
+    </div>
+</div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/gdg-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jisu Kim">
+      <meta itemprop="description" content="What I am interested in and love to ❤️">
+      <meta itemprop="image" content="/images/me3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I AM JISU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GDG 3주차
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-24 16:17 16:17:00" itemprop="dateCreated datePublished" datetime="2018-07-24T16:17:00+09:00">2018-07-24 16:17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ETC/" itemprop="url" rel="index"><span itemprop="name">ETC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/posts/gdg-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/gdg-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Training-set-and-Test-set"><a href="#Training-set-and-Test-set" class="headerlink" title="Training set and Test set"></a>Training set and Test set</h2><p><a href="https://developers.google.com/machine-learning/crash-course/training-and-test-sets/splitting-data" target="_blank" rel="noopener">Training and Test Sets</a></p>
+<ul>
+<li><p>테스트 세트는 어떻게 해야 함?</p>
+<ul>
+<li>의미 있는 결과가 될 수 있도록 겁나 커야함.</li>
+<li>트레이닝 세트와 같은 특성을 가져야함. 어떻게 해야 이럴 수 있을까?</li>
+</ul>
+</li>
+<li><p>트레이닝 세트로 학습을 하고 테스트 세트로 평가를 함.</p>
+</li>
+<li>이 때 주의해야할 점은 테스트 세트로 학습을 하지 말라는 것임.</li>
+<li>테스트 세트로 돌렸는데 정확성이 트레이닝 세트랑 비슷하다면 의심해보셈.. 테스트 세트로 학습을 하진 않았는지…</li>
+<li>learning rate 가 3이여도 트레이닝 로스가 큰데..? (다를 수 있구나)</li>
+<li>learning rate 을 늘렸다가 줄여도 델타가 변화가 없는데..?<ul>
+<li>대부분의 실행에서는 배치 크기를 늘려도 학습 손실 또는 테스트 손실에 유의미한 영향이 없다. </li>
+<li>그러나 실행 중 소수에서는 배치 크기를 20 이상으로 늘릴 때 테스트 손실이 학습 손실보다 약간 낮은 값으로 하락한다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h2><p><a href="https://developers.google.com/machine-learning/crash-course/validation/another-partition" target="_blank" rel="noopener">Validation Set</a></p>
+<ul>
+<li>위 방법으로 테스트를 돌리게 되면 은연중에 자주 테스트하는 속성이 반영되게 됨.<ul>
+<li>동일한 테스트 셋으로 계속 돌린다는 말인가?</li>
+<li>흠 이 자체가 데이트 셋을 하나만 두고 거기서 테스트 셋, 트레이닝 셋 퍼센트만 다르게 해서 계속 돌리는 모양임</li>
+</ul>
+</li>
+<li>training set -&gt; test set<ul>
+<li>마지막에 가장 우수한 모델을 뽑는데 이걸로 뭐함?</li>
+</ul>
+</li>
+<li>training set -&gt; validation set -&gt; test set<ul>
+<li>validation 에서 우수한 모델만 뽑아서 test를 하는 것임.</li>
+<li>위 문제점을 완전히 해결하는 것은 아니고 마모되는 횟수, 시간을 매우 줄이는 것임</li>
+<li>마모된다는 말은 같은 데이터를 많이 쓸수록 일반화 가능성이 낮잖. 그것을 말하는 것임.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Representation-Feature-Engineering"><a href="#Representation-Feature-Engineering" class="headerlink" title="Representation: Feature Engineering"></a>Representation: Feature Engineering</h2><p><a href="https://developers.google.com/machine-learning/crash-course/representation/feature-engineering" target="_blank" rel="noopener">Feature Engineering</a></p>
+<ul>
+<li>님이 하는 것, 코드에 중점을 머러에서는 feature 에 중점을 둠</li>
+<li>비정제 데이터를 가지고 feature vector 을 뽑아내는 게 feature engineering 이라고 함.</li>
+<li>feature engineering 작업 시간 개걸림.</li>
+<li>실수값은 걍 쓰면 됨.</li>
+<li>문자열은 정의를 함. <ul>
+<li>one-hot encoding</li>
+<li>요소 중 하나가 1로 설정, 그 외에는 0으로 설정하는 것</li>
+<li>사용자가 정의하나? 어디에 정의하는 함수를 넣나</li>
+</ul>
+</li>
+</ul>
+<h2 id="Representation-Qualities-of-Good-Features"><a href="#Representation-Qualities-of-Good-Features" class="headerlink" title="Representation: Qualities of Good Features"></a>Representation: Qualities of Good Features</h2><p><a href="https://developers.google.com/machine-learning/crash-course/representation/qualities-of-good-features" target="_blank" rel="noopener">Qualities of Good Features</a></p>
+<ol>
+<li>데이터 셋에서 유니크하게 나타난 것은 좋은 feature 겠음? 뭘 예측할 수가 없잖</li>
+<li>알아볼 수 있는 명확한 값</li>
+<li>특수 값이 없어야 함스</li>
+</ol>
+<h2 id="Representation-Cleaning-data"><a href="#Representation-Cleaning-data" class="headerlink" title="Representation: Cleaning data"></a>Representation: Cleaning data</h2><p><a href="https://developers.google.com/machine-learning/crash-course/representation/cleaning-data" target="_blank" rel="noopener">Cleaning data</a></p>
+<ul>
+<li>scaling : feature 값을 -1 ~ +1 등으로 변경하는 것을 말함.</li>
+<li>feature 가 한 개일 경우는 머 그닥그닥이지만 여러 개일 경우 이점이 있음.</li>
+<li>꼭 feature 끼리 동일한 주간으로 표현 안해도 됨.</li>
+<li>scaling 을 해보았는데 요상하게 튀는 값이 있다면?</li>
+<li>로그 -&gt; 값 자르기</li>
+<li>Binning<ul>
+<li>bin(bucket) : 쪼개는 단위 = bucketing</li>
+<li>bin 으로 쪼개서 포함된 곳을 키셈</li>
+</ul>
+</li>
+<li>Scrubbing<ul>
+<li>잘못된 예, 잘못된 데이터가 있을 수 있음.</li>
+<li>신뢰를 못함스키</li>
+<li>이러한 데이터는 삭제하여 예를 수정하거나, 데이터를 수정할 수 있음</li>
+<li>요놈 탐지하기 위해 여러가지 통계 자료가 사용됨.</li>
+</ul>
+</li>
+<li>좋은 데이터가 좋은 결과를 만듬<ul>
+<li>정상적인 동작은 무엇인지</li>
+<li>다르면 왜 다른지</li>
+<li>다른 소스랑 동일한지 항상 고려해야 함.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Nonlinearity-Encoding"><a href="#Nonlinearity-Encoding" class="headerlink" title="Nonlinearity Encoding"></a>Nonlinearity Encoding</h2><ul>
+<li>Feature cross<br>$$y = b + w_1x_1 + w_2x_2 + w_3x_3$$</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/gdg-2/" rel="next" title="GDG 2주차 Key ML Terminology">
+                <i class="fa fa-chevron-left"></i> GDG 2주차 Key ML Terminology
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/life-in-new-area/" rel="prev" title="Life in new area">
+                Life in new area <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/me3.jpeg" alt="Jisu Kim">
+            
+              <p class="site-author-name" itemprop="name">Jisu Kim</p>
+              <div class="site-description motion-element" itemprop="description">What I am interested in and love to ❤️</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">144</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-set-and-Test-set"><span class="nav-number">1.</span> <span class="nav-text">Training set and Test set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Validation"><span class="nav-number">2.</span> <span class="nav-text">Validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Representation-Feature-Engineering"><span class="nav-number">3.</span> <span class="nav-text">Representation: Feature Engineering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Representation-Qualities-of-Good-Features"><span class="nav-number">4.</span> <span class="nav-text">Representation: Qualities of Good Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Representation-Cleaning-data"><span class="nav-number">5.</span> <span class="nav-text">Representation: Cleaning data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nonlinearity-Encoding"><span class="nav-number">6.</span> <span class="nav-text">Nonlinearity Encoding</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jisu Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://zisu-dev.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zisukim.github.io/posts/gdg-3/";
+    this.page.identifier = "posts/gdg-3/";
+    this.page.title = 'GDG 3주차';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://zisu-dev.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

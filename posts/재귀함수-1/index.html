@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6735316506157539",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="//2015.04.30 스터디 내욤임재귀함수 호출(Recursive function call) : 함수가 자기 자신을 호출!  내가 하려는 작업이 있다 문제를 잘게 자른다. 더 이상 자를 수 없는 부분(base) 처리   base case로 더 이상 쪼갤 수 업는 부분을 처리하고recursive case로 쪼갠 문제를 호출한다. Combination 재귀로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="재귀함수1">
+<meta property="og:url" content="https://zisukim.github.io/posts/재귀함수-1/index.html">
+<meta property="og:site_name" content="I AM JISU">
+<meta property="og:description" content="//2015.04.30 스터디 내욤임재귀함수 호출(Recursive function call) : 함수가 자기 자신을 호출!  내가 하려는 작업이 있다 문제를 잘게 자른다. 더 이상 자를 수 없는 부분(base) 처리   base case로 더 이상 쪼갤 수 업는 부분을 처리하고recursive case로 쪼갠 문제를 호출한다. Combination 재귀로">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zisukim.github.io/images/recursive.jpg">
+<meta property="og:image" content="https://zisukim.github.io/images/combination.jpg">
+<meta property="og:image" content="https://zisukim.github.io/images/component.png">
+<meta property="og:updated_time" content="2019-03-08T20:21:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="재귀함수1">
+<meta name="twitter:description" content="//2015.04.30 스터디 내욤임재귀함수 호출(Recursive function call) : 함수가 자기 자신을 호출!  내가 하려는 작업이 있다 문제를 잘게 자른다. 더 이상 자를 수 없는 부분(base) 처리   base case로 더 이상 쪼갤 수 업는 부분을 처리하고recursive case로 쪼갠 문제를 호출한다. Combination 재귀로">
+<meta name="twitter:image" content="https://zisukim.github.io/images/recursive.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zisukim.github.io/posts/재귀함수-1/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>재귀함수1 | I AM JISU</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I AM JISU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Slow and steady wins the race.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+
+
+
+
+  
+
+<div class="category-all-header">
+    <ul class="menu">
+    <li class="menu-item menu-categories">
+        <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories
+    </li>
+    </ul>  
+    <div class="menu-item category-all">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/App/React-Native/">React Native</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/SwiftUI/">SwiftUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Languages/">Languages</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test1/">test1</a><span class="category-list-count">1</span></li></ul>
+    </div>
+</div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/재귀함수-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jisu Kim">
+      <meta itemprop="description" content="What I am interested in and love to ❤️">
+      <meta itemprop="image" content="/images/me3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I AM JISU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">재귀함수1
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-05-01 23:13 23:13:00" itemprop="dateCreated datePublished" datetime="2015-05-01T23:13:00+09:00">2015-05-01 23:13</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/posts/재귀함수-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/재귀함수-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>//2015.04.30 스터디 내욤임<br><strong>재귀함수 호출(Recursive function call)</strong> : 함수가 자기 자신을 호출!</p>
+<ol>
+<li>내가 하려는 작업이 있다</li>
+<li>문제를 잘게 자른다.</li>
+<li>더 이상 자를 수 없는 부분(base) 처리</li>
+</ol>
+<p><img class="emoticon" alt="recursive" src="/images/recursive.jpg"></p>
+<p><span style="color: rgb(0, 117, 200);">base case</span>로 더 이상 쪼갤 수 업는 부분을 처리하고<br><span style="color: rgb(233, 125, 129)">recursive case</span>로 쪼갠 문제를 호출한다.</p>
+<h3 id="Combination-재귀로-구현해보기"><a href="#Combination-재귀로-구현해보기" class="headerlink" title="Combination 재귀로 구현해보기"></a>Combination 재귀로 구현해보기</h3><p>boj 1010 다리 놓기 문제의 nCr을 다시 한 번 생각해보자<br><a href="https://www.acmicpc.net/problem/1010" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1010</a></p>
+<p><img class="emoticon" alt="combination" src="/images/combination.jpg"><br>nCr-1 : take<br>nCr : not take</p>
+<h3 id="1182-부분집합의-합"><a href="#1182-부분집합의-합" class="headerlink" title="1182 부분집합의 합"></a>1182 부분집합의 합</h3><p><a href="https://www.acmicpc.net/problem/1182" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1182</a> </p>
+<p>input : 원수의 개수 1&lt;=N&lt;=20<br>        부분집합 원소의 합 S</p>
+<p>원소의 개수가 최대 20개일 경우 부분집합 원소의 개수는 $2^20$(1,049,576)개이다.<br>완전탐색으로 모든 경우의 수를 구한 후 S와 같은 경우의 수를 구할 수 있다.<br>원소의 값들을 저장한 배열의 index를 인자로 하여 0번 index부터 순차적으로 살펴볼검</p>
+<p>arr[index] 원소를 sum에 포함시키는 경우 포함을 시키지 않는 경우</p>
+<p>함수 : n번째 원소를 인자로 호출한다.<br>인자 : 원소의 값을 저장한 배열의 index<br><span style="color: rgb(0, 117, 200);">base case</span> : index가 N이 되었을 때 더 이상 쪼개지지 않은 작업이 된다.<br>내가 하려는 작업 : sum에 원소를 포함시킨다, sum에 원소를 포함시키지 않는다.<br><span style="color: rgb(233, 125, 129)">recursive case</span> : index + 1번째 원소를 인자로 호출한다.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> N, S, sum = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">21</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> idx)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (N == idx)&#123;        <span class="comment">//base case</span></span><br><span class="line">        <span class="keyword">if</span> (sum == S)&#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//recursive case</span></span><br><span class="line">    sum += arr[idx];    <span class="comment">//idx번째 원소를 포함여</span></span><br><span class="line">    func(idx + <span class="number">1</span>);</span><br><span class="line">    sum -= arr[idx];    <span class="comment">//idx번째 원소를 안포함여</span></span><br><span class="line">    func(idx + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;N, &amp;S);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;N; ++i)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);</span><br><span class="line"> </span><br><span class="line">    func(<span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (S == <span class="number">0</span>) ans--;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>공집합인 경우를 제외하므로 S가 0일 때는 경우의 수 중 한 개를 빼준다.<br>(S=0일때 공집합일 경우에도 sum == S가 성립하므로)</p>
+<details><summary>참고용 : integer return 버전의 재귀함수</summary><br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> N, S, arr[<span class="number">21</span>];</span><br><span class="line"><span class="comment">//integer return 버전 </span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//선택한 놈의 갯수, 선택한 놈의 인덱스, 합</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> cnt, <span class="keyword">int</span> idx, <span class="keyword">int</span> sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(idx == N)&#123;</span><br><span class="line">        <span class="comment">// 공집합은 해당되지 않으므로</span></span><br><span class="line">        <span class="keyword">if</span>(cnt)&#123;</span><br><span class="line">            <span class="comment">// 합이 S가 되는 부분집합 개수 </span></span><br><span class="line">            <span class="keyword">if</span>(sum == S) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// arr[idx]포함 안함 + arr[idx]포함 함</span></span><br><span class="line">    <span class="keyword">return</span> solution(cnt, idx+<span class="number">1</span>, sum) + solution(cnt+<span class="number">1</span>, idx+<span class="number">1</span>, sum+arr[idx]);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;N, &amp;S);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;N; ++i)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);</span><br><span class="line">  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, solution(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br></details>
+
+<h3 id="4963-섬의-개수"><a href="#4963-섬의-개수" class="headerlink" title="4963 섬의 개수"></a>4963 섬의 개수</h3><p><a href="https://www.acmicpc.net/problem/4963" target="_blank" rel="noopener">https://www.acmicpc.net/problem/4963</a></p>
+<p>현재 우리가 구현하고 있는 재귀는 DFS(Depth first search : 깊이 우선 탐색) 모양을 가진다.<br>갈 때까지 가보자는 알고리즘이다. 첨부된 ppt(부분집합의 합 분제)에서 나타나 있는 트리가 맨 마지막 노드까지 내려가는 것처럼!<br>(뭔말인지 모르겠져 자세한 설명은 그래프 시간에ㅎㅎ)</p>
+<p>DFS로 세가지 사실을 알 수 있다.</p>
+<ol>
+<li>탐색</li>
+<li>연결성</li>
+<li>component 개수<br>(뭔말인지 모르겠져 자세한 설명은 그래프 시간에2ㅎㅎ)</li>
+</ol>
+<p>이 문제 같은 경우 <strong>component의 개수를 세는 문제</strong>이다.<br>component는 서로 연결되어 있는 뭉탱이로 생각하면 된다.<br><img class="emoticon" alt="component" src="/images/component.png"></p>
+<p>이 경우  component는 2개이다.<br>여튼 이 문제에서 이제 재귀함수를 어떻게 구현해야 할지 생각해보자.<br>재귀함수를 호출하는 것을 방문한다라고 생각을 한다.<br>그 다음 우리가 다음에 방문하고 싶은 곳을 recursive case에서 인자로 설정하여 방문한다고 생각하면 된다.</p>
+<p>함수 : map[y][x]를 방문한다.<br>인자 : 현재 방문할 y, x<br><span style="color: rgb(0, 117, 200);">base case</span> : main에서 지도 끝까지 뒤졌을 때 끝난다.(함수 안에는 구현안됨)<br>내가 하려는 작업 : map[y][x]을 방문한다. visited[y][x]에 방문했다는 표시를 해준다.<br><span style="color: rgb(233, 125, 129)">recursive case</span> : 8방향을 살펴본 뒤 조건에 맞으면 다음 y, x인자를 설정하여 함수를 호출한다.</p>
+<p>recursive case에서 다음 인자를 선택할 조건</p>
+<p>nextY를 다음에 방문할 y좌표, nextX를 다음에 방문할 x좌표라고 생각한다.<br>① map[nextY][nextX]가 육지이다.<br>② map[nextY][nextX]를 아직 방문하지 않았다. (visited[nextY][nextX]의 값이 0이다.)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> dy[<span class="number">8</span>] = &#123; <span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">8</span>] = &#123; <span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span> &#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> w, h;</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">51</span>][<span class="number">51</span>];</span><br><span class="line"><span class="keyword">bool</span> visited[<span class="number">51</span>][<span class="number">51</span>] = &#123; <span class="number">0</span>, &#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">inRange</span><span class="params">(<span class="keyword">int</span> y, <span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (y&lt;<span class="number">0</span> || y &gt;= h || x&lt;<span class="number">0</span> || x &gt;= w) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> y, <span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">    visited[y][x] = <span class="number">1</span>;        <span class="comment">//난 방문했다</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">8</span>; ++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> nextY = y + dy[i], nextX = x + dx[i];</span><br><span class="line">        <span class="comment">// 다음 인자를 선택할 조건 1. 육지인 경우 2. 방문하지 않은 경우</span></span><br><span class="line">        <span class="comment">// recursive case</span></span><br><span class="line">        <span class="keyword">if</span> (inRange(nextY, nextX) &amp;&amp; <span class="built_in">map</span>[nextY][nextX] &amp;&amp; !visited[nextY][nextX])</span><br><span class="line">            dfs(nextY, nextX);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _CONSOLE</span></span><br><span class="line">    freopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;w, &amp;h) &amp;&amp; (w != <span class="number">0</span> &amp;&amp; h != <span class="number">0</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span> (w == <span class="number">0</span> &amp;&amp; h == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;h; ++i)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;w; ++j) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">map</span>[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(visited, <span class="number">0</span>, <span class="keyword">sizeof</span>(visited));</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;h; ++i)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;w; ++j)&#123;</span><br><span class="line">                <span class="keyword">if</span> (!visited[i][j] &amp;&amp; <span class="built_in">map</span>[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">                    ans++;        <span class="comment">// 처음 방문해야지~했을 때 component 개수 세기</span></span><br><span class="line">                    dfs(i, j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="유사-문제"><a href="#유사-문제" class="headerlink" title="유사 문제"></a>유사 문제</h3><ol>
+<li><p>유기농 배추<br><a href="https://www.acmicpc.net/problem/1012" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1012</a> </p>
+</li>
+<li><p>단지 번호 붙이기<br><a href="https://www.acmicpc.net/problem/2667" target="_blank" rel="noopener">https://www.acmicpc.net/problem/2667</a> </p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/제곱근/" rel="next" title="제곱근">
+                <i class="fa fa-chevron-left"></i> 제곱근
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/재귀함수-2/" rel="prev" title="재귀함수2">
+                재귀함수2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/me3.jpeg" alt="Jisu Kim">
+            
+              <p class="site-author-name" itemprop="name">Jisu Kim</p>
+              <div class="site-description motion-element" itemprop="description">What I am interested in and love to ❤️</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">144</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Combination-재귀로-구현해보기"><span class="nav-number">1.</span> <span class="nav-text">Combination 재귀로 구현해보기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1182-부분집합의-합"><span class="nav-number">2.</span> <span class="nav-text">1182 부분집합의 합</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4963-섬의-개수"><span class="nav-number">3.</span> <span class="nav-text">4963 섬의 개수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#유사-문제"><span class="nav-number">4.</span> <span class="nav-text">유사 문제</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jisu Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://zisu-dev.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zisukim.github.io/posts/재귀함수-1/";
+    this.page.identifier = "posts/재귀함수-1/";
+    this.page.title = '재귀함수1';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://zisu-dev.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6735316506157539",
+    enable_page_level_ads: true
+  });
+</script>
+
+  <meta name="description" content="출처 : Introduction to Machine Learning 머신러닝을 학습하면 더 잘할 수 있는 것 프로그래밍 시간을 줄일 수 있는 도구를 얻을 수 있다. 커스티마이징하여 특정 범위에 적합한 상품을 제공할 수 있다. (재사용을 할 수 있음) 어떻게 수동으로 하는지를 모르는 문제들을 풀 수 있다. (사람 표정을 읽거나, 친구들하고 대화를 하는 것처럼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GDG 1주차 Intro">
+<meta property="og:url" content="https://zisukim.github.io/posts/gdg-1/index.html">
+<meta property="og:site_name" content="I AM JISU">
+<meta property="og:description" content="출처 : Introduction to Machine Learning 머신러닝을 학습하면 더 잘할 수 있는 것 프로그래밍 시간을 줄일 수 있는 도구를 얻을 수 있다. 커스티마이징하여 특정 범위에 적합한 상품을 제공할 수 있다. (재사용을 할 수 있음) 어떻게 수동으로 하는지를 모르는 문제들을 풀 수 있다. (사람 표정을 읽거나, 친구들하고 대화를 하는 것처럼">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-27T22:58:29.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GDG 1주차 Intro">
+<meta name="twitter:description" content="출처 : Introduction to Machine Learning 머신러닝을 학습하면 더 잘할 수 있는 것 프로그래밍 시간을 줄일 수 있는 도구를 얻을 수 있다. 커스티마이징하여 특정 범위에 적합한 상품을 제공할 수 있다. (재사용을 할 수 있음) 어떻게 수동으로 하는지를 모르는 문제들을 풀 수 있다. (사람 표정을 읽거나, 친구들하고 대화를 하는 것처럼">
+
+
+
+
+
+
+  <link rel="canonical" href="https://zisukim.github.io/posts/gdg-1/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GDG 1주차 Intro | I AM JISU</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I AM JISU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Slow and steady wins the race.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+
+
+
+
+  
+
+<div class="category-all-header">
+    <ul class="menu">
+    <li class="menu-item menu-categories">
+        <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories
+    </li>
+    </ul>  
+    <div class="menu-item category-all">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/App/React-Native/">React Native</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/SwiftUI/">SwiftUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Languages/">Languages</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test1/">test1</a><span class="category-list-count">1</span></li></ul>
+    </div>
+</div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/gdg-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jisu Kim">
+      <meta itemprop="description" content="What I am interested in and love to ❤️">
+      <meta itemprop="image" content="/images/me3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I AM JISU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GDG 1주차 Intro
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-14 17:52 17:52:00" itemprop="dateCreated datePublished" datetime="2018-07-14T17:52:00+09:00">2018-07-14 17:52</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ETC/" itemprop="url" rel="index"><span itemprop="name">ETC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/posts/gdg-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/gdg-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>출처 : <a href="https://developers.google.com/machine-learning/crash-course/ml-intro" target="_blank" rel="noopener">Introduction to Machine Learning</a></p>
+<h2 id="머신러닝을-학습하면-더-잘할-수-있는-것"><a href="#머신러닝을-학습하면-더-잘할-수-있는-것" class="headerlink" title="머신러닝을 학습하면 더 잘할 수 있는 것"></a>머신러닝을 학습하면 더 잘할 수 있는 것</h2><ol>
+<li>프로그래밍 시간을 줄일 수 있는 도구를 얻을 수 있다.</li>
+<li>커스티마이징하여 특정 범위에 적합한 상품을 제공할 수 있다. (재사용을 할 수 있음)</li>
+<li>어떻게 수동으로 하는지를 모르는 문제들을 풀 수 있다. (사람 표정을 읽거나, 친구들하고 대화를 하는 것처럼)<br>알고리즘이 무엇인지 말할 필요가 없고 단순히 예시들을 돌려보고 문제를 풀 수 있으면 된다.</li>
+</ol>
+<h2 id="머신러닝은"><a href="#머신러닝은" class="headerlink" title="머신러닝은?"></a>머신러닝은?</h2><ul>
+<li>입력값들을 가지고 새로운 일을 예측하는 것.</li>
+</ul>
+<h2 id="Label-Feature-Model"><a href="#Label-Feature-Model" class="headerlink" title="Label, Feature, Model"></a>Label, Feature, Model</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- labeled example : (x, y)</span><br><span class="line">- unlabeled example : (x, ?)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>라벨이 있는 예시로 학습을 시키고, 라벨이 없는 예시로 예측한다.</li>
+<li>특성과 라벨의 관계를 정의한 것을 모델이라고 하고,</li>
+<li>이러한 모델을 만드거나 배우는 것이 학습이다.</li>
+<li>예시들을 보고 모델이 관계를 점차 학습해가는 것이다.</li>
+</ul>
+<p>-&gt; 좋은 특성과 좋은 라벨은 객관적인 수량으로 표현할 수 있는 것이다.  </p>
+<h2 id="ML로-전환하기"><a href="#ML로-전환하기" class="headerlink" title="ML로 전환하기"></a>ML로 전환하기</h2><h3 id="y-wx-b"><a href="#y-wx-b" class="headerlink" title="y = wx + b"></a>y = wx + b</h3><ul>
+<li>w : weight vector ? 무엇? slope 선형 모델에서 특성의 계수 또는 심층 네트워크의 엣지입니다.<ul>
+<li>심층 네트워크가 뭐여 </li>
+</ul>
+</li>
+<li>b : bias</li>
+<li>실제값 - 예측값 = 손실값</li>
+<li>손실은 항상 0 이상의 양수임</li>
+<li>l2 loss (예측값 - 신제값)^2 왜 제곱을 하지?<ul>
+<li>면적이네</li>
+<li>MSE (Mean Squared Error)</li>
+<li>왜 RMSE가 더 해석하기 쉽슴?</li>
+</ul>
+</li>
+<li>그래서 실제값이 예측값에서 멀어질수록 손실은 제곱으로 커진다고 함.</li>
+<li>w, b는 우리가 정의하는 것인가?</li>
+<li>이러한 그래프들은 주로 있는 레파토리를 분석한 것인가?</li>
+<li>추론은 x를 조정하는 것이구만</li>
+<li>regression은 정확히 뭐지 연속값을 출력하는 모델</li>
+</ul>
+<h2 id="손실-줄이기"><a href="#손실-줄이기" class="headerlink" title="손실 줄이기"></a>손실 줄이기</h2><h3 id="반복-방식"><a href="#반복-방식" class="headerlink" title="반복 방식"></a>반복 방식</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y = wx + b</span><br></pre></td></tr></table></figure>
+<ul>
+<li>w랑 b를 어떻게 동시에 추정을 하지? 근거를 해서 다음 값을 넣는 것인가? 아니면 그냥 아무값이나 넣는 것인가?</li>
+<li>그래서 이렇게 주루루루룩가다가 손실이 없어질때까지 수행하는 것임</li>
+</ul>
+<h3 id="경사하강법"><a href="#경사하강법" class="headerlink" title="경사하강법"></a>경사하강법</h3><ul>
+<li>오.. 위에 대한 답이 됨</li>
+<li>무작정 하는 것은 당연히 비효율적임</li>
+<li>모든 w에 대한 좌표는 항아리모양을 하고 있음. 그래서 우리의 목표인 손실이 작은 최하점으로 가는 것이 목표임</li>
+<li>아래로 가기 위해서 우리는 편미분의 벡터를 구해서 기울기를 계산해야함</li>
+<li>그러면 결론적으로 기울기가 0이 되는 지점을 찾는 것인가?</li>
+</ul>
+<h3 id="학습률"><a href="#학습률" class="headerlink" title="학습률"></a>학습률</h3><ul>
+<li>초매개변수?<ul>
+<li>사용자 본인에 의해서 조작되는 값</li>
+<li>매개변수와 대비됨 (그럼 매개변수는 사용자에 의해서 하는 것이 아니라는 말임?)</li>
+<li>맞넹 매개변수는 ML 스스로가 정하는 값을 말함</li>
+</ul>
+</li>
+<li>골디락스 학습률</li>
+<li>학습률은 초매개변수임<ul>
+<li>= 보폭</li>
+</ul>
+</li>
+</ul>
+<h3 id="학습률-최적화"><a href="#학습률-최적화" class="headerlink" title="학습률 최적화"></a>학습률 최적화</h3><ul>
+<li>그래서 우리가 해야하는 일은 바람직한 학습률을 구하는 것임</li>
+<li>당연히 학습단계가 제일 작아야, 최적화되었다고 말할 수 있겠지</li>
+<li>학습률이 매우 크다고, 또는 매우 작다고 최적화될수있는 것은 아님</li>
+<li>어느 순간이 있음</li>
+<li>우리는 모든 경우에 최적된 학습률을 찾을 필요는 없음</li>
+<li>경사하강법이 효과적으로 수렴할 정도로 크지만 발산하지 않을 정도로 작은 적당한 학습률을 구하면 됨</li>
+</ul>
+<h3 id="확률적-경사하강법"><a href="#확률적-경사하강법" class="headerlink" title="확률적 경사하강법"></a>확률적 경사하강법</h3><ul>
+<li>반복당 하나의 예만 사용하는 것</li>
+<li>1개의 반복에서 사용하는 예의 총 개수를 배치라고 하는데,</li>
+<li>당연히 배치가 크면 시간이 개 오래걸릴 것임. (물론 정확하긴 하겠지)</li>
+<li>그래서 데이터가 어마어마하게 커지게 되면 다 계산하고 앉아있을 수가 없음</li>
+<li>그것을 위해서 1개의 반복에서 1개의 예만 사용하는 것을 확률적 경사하강법이라고 함.</li>
+<li>확률론적(Stochastic)이란 말은 랜덤하게 뽑은 다는 말과 같음 (딱히 확률적이진 않구만)</li>
+<li>전체 배치와 확률적 경사하강법 중간 단계가 바로 미니 배치 확률적 경사하강법임<ul>
+<li>얘는 노이즈는 줄이고</li>
+<li>전체 배치보다는 시간도 줄어드는 효과가 있음</li>
+</ul>
+</li>
+<li>근데 반복 자체가 다른 변수값으로 수행을 한다는 것인데 반복과 예의 차이점은 뭘까?</li>
+</ul>
+<h2 id="TF첫걸음"><a href="#TF첫걸음" class="headerlink" title="TF첫걸음"></a>TF첫걸음</h2><h3 id="TPU"><a href="#TPU" class="headerlink" title="TPU?"></a>TPU?</h3><ul>
+<li><p>하드웨어넹</p>
+</li>
+<li><p>오오.. 안에는 C++로 되어 있고 Python은 그놈을 래핑할 뿐이군</p>
+</li>
+<li>그래프 프로토콜 버퍼, 분산된 그래프를 실행하는 런타임 -&gt; JVM 같더라 여러 하드웨어에서 돌아갈 수 있게 하는 것.</li>
+</ul>
+<h3 id="Estimator"><a href="#Estimator" class="headerlink" title="Estimator"></a>Estimator</h3><ul>
+<li>로직 자체를 캡슐화한 것</li>
+</ul>
+<h3 id="텐서"><a href="#텐서" class="headerlink" title="텐서"></a>텐서</h3><ul>
+<li>대부분 스칼라, 벡터 또는 행렬로 이루어진 N차원 데이터 구조</li>
+<li>저게 뭔말임ㅋㅋㅋㅋㅋㅋㅋ 벡터란 말임 행렬이란 말임</li>
+</ul>
+<h3 id="판다스-Pandas"><a href="#판다스-Pandas" class="headerlink" title="판다스(Pandas)"></a>판다스(Pandas)</h3><h3 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h3><ul>
+<li>california_housing_dataframe[[“total_rooms”]] 이중괄호랑 그냥 괄호랑 출력되는게 다름 </li>
+</ul>
+<h2 id="일반화"><a href="#일반화" class="headerlink" title="일반화"></a>일반화</h2><h3 id="과적합의-위험"><a href="#과적합의-위험" class="headerlink" title="과적합의 위험"></a>과적합의 위험</h3><ul>
+<li>필요 이상으로 복잡한 모델을 만들면 과적합이 발생한다.</li>
+<li>머신러닝의 근본적인 과제는 데이터 적합도를 유지하는 동시에 최대한 단순화하는 것이다.</li>
+<li>왜 간단한 것이 더 좋은 결과를 얻을 수 있을까?</li>
+<li>학습세트랑 테스트 세트랑 구분을 하네<ul>
+<li>테스트 세트는 학습하는데 사용하지 않니?</li>
+</ul>
+</li>
+<li>학습데이터랑 비슷하면 새 데이터를 못맞춤 ㅋㄷ</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/일본어-동사의-종류와-특징/" rel="next" title="일본어 동사의 종류와 특징">
+                <i class="fa fa-chevron-left"></i> 일본어 동사의 종류와 특징
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/gdg-2/" rel="prev" title="GDG 2주차 Key ML Terminology">
+                GDG 2주차 Key ML Terminology <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/me3.jpeg" alt="Jisu Kim">
+            
+              <p class="site-author-name" itemprop="name">Jisu Kim</p>
+              <div class="site-description motion-element" itemprop="description">What I am interested in and love to ❤️</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">144</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#머신러닝을-학습하면-더-잘할-수-있는-것"><span class="nav-number">1.</span> <span class="nav-text">머신러닝을 학습하면 더 잘할 수 있는 것</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#머신러닝은"><span class="nav-number">2.</span> <span class="nav-text">머신러닝은?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Label-Feature-Model"><span class="nav-number">3.</span> <span class="nav-text">Label, Feature, Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ML로-전환하기"><span class="nav-number">4.</span> <span class="nav-text">ML로 전환하기</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#y-wx-b"><span class="nav-number">4.1.</span> <span class="nav-text">y = wx + b</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#손실-줄이기"><span class="nav-number">5.</span> <span class="nav-text">손실 줄이기</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#반복-방식"><span class="nav-number">5.1.</span> <span class="nav-text">반복 방식</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#경사하강법"><span class="nav-number">5.2.</span> <span class="nav-text">경사하강법</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#학습률"><span class="nav-number">5.3.</span> <span class="nav-text">학습률</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#학습률-최적화"><span class="nav-number">5.4.</span> <span class="nav-text">학습률 최적화</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#확률적-경사하강법"><span class="nav-number">5.5.</span> <span class="nav-text">확률적 경사하강법</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TF첫걸음"><span class="nav-number">6.</span> <span class="nav-text">TF첫걸음</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TPU"><span class="nav-number">6.1.</span> <span class="nav-text">TPU?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Estimator"><span class="nav-number">6.2.</span> <span class="nav-text">Estimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#텐서"><span class="nav-number">6.3.</span> <span class="nav-text">텐서</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#판다스-Pandas"><span class="nav-number">6.4.</span> <span class="nav-text">판다스(Pandas)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensorflow"><span class="nav-number">6.5.</span> <span class="nav-text">Tensorflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#일반화"><span class="nav-number">7.</span> <span class="nav-text">일반화</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#과적합의-위험"><span class="nav-number">7.1.</span> <span class="nav-text">과적합의 위험</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jisu Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://zisu-dev.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zisukim.github.io/posts/gdg-1/";
+    this.page.identifier = "posts/gdg-1/";
+    this.page.title = 'GDG 1주차 Intro';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://zisu-dev.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
