@@ -103,24 +103,24 @@
   });
 </script>
 
-  <meta name="description" content="Problemhttps://leetcode.com/problems/unique-paths/ Solutionclass Solution:  def uniquePaths(self, m: int, n: int) -&amp;gt; int:    if m == 0 or n == 0:      return 0    # d[i][j] = the number of ways to">
+  <meta name="description" content="Why The OutOfMemoryError often has been thrown when I download a little large file. Let’s write requested stream directly to a file. It would be ok you implement it using the RestTemplate. But I’ll tr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unique Paths">
-<meta property="og:url" content="https://zisukim.github.io/posts/unique-paths/index.html">
+<meta property="og:title" content="Download Large File - WebClient">
+<meta property="og:url" content="https://zisukim.github.io/posts/webclient-download-large-files/index.html">
 <meta property="og:site_name" content="I AM JISU">
-<meta property="og:description" content="Problemhttps://leetcode.com/problems/unique-paths/ Solutionclass Solution:  def uniquePaths(self, m: int, n: int) -&amp;gt; int:    if m == 0 or n == 0:      return 0    # d[i][j] = the number of ways to">
+<meta property="og:description" content="Why The OutOfMemoryError often has been thrown when I download a little large file. Let’s write requested stream directly to a file. It would be ok you implement it using the RestTemplate. But I’ll tr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-01T02:00:10.000Z">
+<meta property="og:updated_time" content="2019-08-21T11:44:37.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unique Paths">
-<meta name="twitter:description" content="Problemhttps://leetcode.com/problems/unique-paths/ Solutionclass Solution:  def uniquePaths(self, m: int, n: int) -&amp;gt; int:    if m == 0 or n == 0:      return 0    # d[i][j] = the number of ways to">
+<meta name="twitter:title" content="Download Large File - WebClient">
+<meta name="twitter:description" content="Why The OutOfMemoryError often has been thrown when I download a little large file. Let’s write requested stream directly to a file. It would be ok you implement it using the RestTemplate. But I’ll tr">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zisukim.github.io/posts/unique-paths/">
+  <link rel="canonical" href="https://zisukim.github.io/posts/webclient-download-large-files/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>Unique Paths | I AM JISU</title>
+  <title>Download Large File - WebClient | I AM JISU</title>
   
 
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/unique-paths/">
+    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/webclient-download-large-files/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jisu Kim">
@@ -342,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Unique Paths
+          <h1 class="post-title" itemprop="name headline">Download Large File - WebClient
 
               
             
@@ -368,7 +368,7 @@
                 
               
 
-              <time title="Created: 2019-06-01 10:39 10:39:00" itemprop="dateCreated datePublished" datetime="2019-06-01T10:39:00+09:00">2019-06-01 10:39</time>
+              <time title="Created: 2019-08-21 19:37 19:37:00" itemprop="dateCreated datePublished" datetime="2019-08-21T19:37:00+09:00">2019-08-21 19:37</time>
             
 
             
@@ -386,7 +386,14 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -405,8 +412,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/posts/unique-paths/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/unique-paths/" itemprop="commentCount"></span>
+                <a href="/posts/webclient-download-large-files/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/webclient-download-large-files/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,13 +441,28 @@
       
 
       
-        <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener">https://leetcode.com/problems/unique-paths/</a></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">uniquePaths</span><span class="params">(self, m: int, n: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">if</span> m == <span class="number">0</span> <span class="keyword">or</span> n == <span class="number">0</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># d[i][j] = the number of ways to [i, j]</span></span><br><span class="line">    d = [[<span class="number">0</span>] * n <span class="keyword">for</span> i <span class="keyword">in</span> range(m)]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">      <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">or</span> j == <span class="number">0</span>:</span><br><span class="line">          d[i][j] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">          d[i][j] = d[i - <span class="number">1</span>][j] + d[i][j - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> d[m - <span class="number">1</span>][n - <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
-<li>Time Complexity: $O(n * m)$</li>
-<li>Space Complexity: $O(n * m)$</li>
+        <h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><ul>
+<li>The <code>OutOfMemoryError</code> often has been thrown when I download a little large file.</li>
+<li>Let’s write requested stream directly to a file.</li>
+<li>It would be ok you implement it using the <strong>RestTemplate</strong>. But I’ll try to do it using <strong>WebClient</strong>.</li>
 </ul>
-
+<h3 id="1-WebClient-Get-data"><a href="#1-WebClient-Get-data" class="headerlink" title="1. WebClient - Get data"></a>1. WebClient - Get data</h3><ul>
+<li><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-client-retrieve" target="_blank" rel="noopener">[Spring] WebClient - retrieve()</a></li>
+<li>Spring WebFlux includes a reactive, non-blocking <strong>WebClient</strong> for HTTP requests.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">WebClient client = WebClient.create(<span class="string">"https://example.org"</span>);</span><br><span class="line"></span><br><span class="line">Flux&lt;DataBuffer&gt; dataStream = client.get()</span><br><span class="line">                .uri(uriBuilder -&gt; uriBuilder</span><br><span class="line">                        .path(<span class="string">"/v1.0/&#123;service&#125;/resources/&#123;resource&#125;"</span>)</span><br><span class="line">                        .build(<span class="string">"service"</span>, <span class="string">"resource"</span>))</span><br><span class="line">                .header(<span class="string">"foo"</span>, <span class="string">"bar"</span>)</span><br><span class="line">                .retrieve()</span><br><span class="line">                .bodyToFlux(DataBuffer.class);</span><br></pre></td></tr></table></figure>
+<h3 id="2-Set-Content-Type-and-Content-Disposition"><a href="#2-Set-Content-Type-and-Content-Disposition" class="headerlink" title="2. Set Content-Type and Content-Disposition"></a>2. Set Content-Type and Content-Disposition</h3><ul>
+<li>Set headers according to the file type to be downloaded.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">download</span><span class="params">(<span class="keyword">final</span> String fileName, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    response.setHeader(<span class="string">"Content-Type"</span>, <span class="string">"text/csv"</span>);</span><br><span class="line">    response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=\""</span> + fileName + <span class="string">"\""</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-Write-stream-to-a-file"><a href="#3-Write-stream-to-a-file" class="headerlink" title="3. Write stream to a file"></a>3. Write stream to a file</h3><ul>
+<li><a href="https://docs.spring.io/spring-framework/docs/5.0.2.RELEASE_to_5.0.3.RELEASE/Spring%20Framework%205.0.3.RELEASE/org/springframework/core/io/buffer/DataBufferUtils.html#write--java.io.OutputStream-" target="_blank" rel="noopener">[Spring] DateBufferUtils.write()</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Write the given stream of &#123;<span class="doctag">@link</span> DataBuffer DataBuffers&#125; to the given</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> OutputStream&#125;. Does &lt;strong&gt;not&lt;/strong&gt; close the output stream</span></span><br><span class="line"><span class="comment"> * when the flux is terminated, and does &lt;strong&gt;not&lt;/strong&gt;</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@linkplain</span> #release(DataBuffer) release&#125; the data buffers in the source.</span></span><br><span class="line"><span class="comment"> * If releasing is required, then subscribe to the returned &#123;<span class="doctag">@code</span> Flux&#125;</span></span><br><span class="line"><span class="comment"> * with a &#123;<span class="doctag">@link</span> #releaseConsumer()&#125;.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Note that the writing process does not start until the returned</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> Flux&#125; is subscribed to.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> source the stream of data buffers to be written</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> outputStream the output stream to write to</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> a Flux containing the same buffers as in &#123;<span class="doctag">@code</span> source&#125;, that</span></span><br><span class="line"><span class="comment"> * starts the writing process when subscribed to, and that publishes any</span></span><br><span class="line"><span class="comment"> * writing errors and the completion signal</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Flux&lt;DataBuffer&gt; <span class="title">write</span><span class="params">(Publisher&lt;DataBuffer&gt; source, OutputStream outputStream)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Write stream to the outputstream of response.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DataBufferUtils.write(dataStream, response.getOutputStream())</span><br><span class="line">                .map(DataBufferUtils::release)</span><br><span class="line">                .then()</span><br><span class="line">                .block();</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -470,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/redundant-connection/" rel="next" title="Redundant Conenction">
-                <i class="fa fa-chevron-left"></i> Redundant Conenction
+              <a href="/posts/apigee/" rel="next" title="apigee resources (API design)">
+                <i class="fa fa-chevron-left"></i> apigee resources (API design)
               </a>
             
           </div>
@@ -479,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/parenthesis/" rel="prev" title="괄호">
-                괄호 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -635,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">1.</span> <span class="nav-text">Why</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-WebClient-Get-data"><span class="nav-number">1.1.</span> <span class="nav-text">1. WebClient - Get data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Set-Content-Type-and-Content-Disposition"><span class="nav-number">1.2.</span> <span class="nav-text">2. Set Content-Type and Content-Disposition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Write-stream-to-a-file"><span class="nav-number">1.3.</span> <span class="nav-text">3. Write stream to a file</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -797,9 +815,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://zisukim.github.io/posts/unique-paths/";
-    this.page.identifier = "posts/unique-paths/";
-    this.page.title = 'Unique Paths';
+    this.page.url = "https://zisukim.github.io/posts/webclient-download-large-files/";
+    this.page.identifier = "posts/webclient-download-large-files/";
+    this.page.title = 'Download Large File - WebClient';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
