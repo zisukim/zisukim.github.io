@@ -106,7 +106,7 @@
   <meta name="description" content="What I am interested in and love to ❤️">
 <meta property="og:type" content="website">
 <meta property="og:title" content="I AM JISU">
-<meta property="og:url" content="https://zisukim.github.io/page/2/index.html">
+<meta property="og:url" content="https://euler37.github.io/page/2/index.html">
 <meta property="og:site_name" content="I AM JISU">
 <meta property="og:description" content="What I am interested in and love to ❤️">
 <meta property="og:locale" content="default">
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="https://zisukim.github.io/page/2/">
+  <link rel="canonical" href="https://euler37.github.io/page/2/">
 
 
 
@@ -202,7 +202,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,7 +230,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -247,7 +247,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
 
   </li>
         
@@ -264,7 +264,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -325,7 +325,199 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/swiftui-getting-started/">
+    <link itemprop="mainEntityOfPage" href="https://euler37.github.io/posts/swiftui-state-and-binding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jisu Kim">
+      <meta itemprop="description" content="What I am interested in and love to ❤️">
+      <meta itemprop="image" content="/images/me3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I AM JISU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/swiftui-state-and-binding/" class="post-title-link" itemprop="url">State과 Binding - SwiftUI</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-06-30 09:27 09:27:00" itemprop="dateCreated datePublished" datetime="2019-06-30T09:27:00+09:00">2019-06-30 09:27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/App/" itemprop="url" rel="index"><span itemprop="name">App</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/App/SwiftUI/" itemprop="url" rel="index"><span itemprop="name">SwiftUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Kommentare: </span>
+                <a href="/posts/swiftui-state-and-binding/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/swiftui-state-and-binding/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Docs"><a href="#Docs" class="headerlink" title="Docs"></a>Docs</h2><ul>
+<li><a href="https://developer.apple.com/documentation/swiftui/state" target="_blank" rel="noopener">Documentation &gt; SwiftUI &gt; State and Data flow &gt; State</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui/binding" target="_blank" rel="noopener">Documentation &gt; SwiftUI &gt; State and Data flow &gt; Binding</a></li>
+</ul>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><ul>
+<li><code>🙋사용자</code> -(버튼을 클릭하거나 입력을 하거나) -&gt; <code>Action</code> -(값이 변경)-&gt; <code>State</code> -(업데이트) -&gt; <code>View</code></li>
+<li>State 값이 변경되면 View는 무효화되고 다시 body가 계산되어 보여집니다. (rerendering)</li>
+</ul>
+<p><strong>Examples</strong><br><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ContentView</span> : <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Whenever you change anything which is marked with the state</span></span><br><span class="line">    @<span class="type">State</span> <span class="keyword">var</span> name: <span class="type">String</span> = <span class="string">"Jinsol"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: some <span class="type">View</span> &#123; <span class="comment">// The whole body gets rendered again</span></span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(name)</span><br><span class="line">                .font(.largeTitle)</span><br><span class="line">            <span class="type">Button</span>(action: &#123;</span><br><span class="line">                <span class="keyword">self</span>.name = <span class="string">"Jisu"</span></span><br><span class="line">            </span><br><span class="line">            &#125;) &#123;</span><br><span class="line">                <span class="type">Text</span>(<span class="string">"Change the name"</span>)</span><br><span class="line">            </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ContentView</span> : <span class="title">View</span> </span>&#123;</span><br><span class="line">    @<span class="type">State</span> <span class="keyword">var</span> tasks = [<span class="type">Task</span>]()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">addTask</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.tasks.append(<span class="type">Task</span>(name: <span class="string">"Wash the IONIC"</span>))</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">List</span> &#123;</span><br><span class="line">            <span class="type">Button</span>(action: addTask) &#123;</span><br><span class="line">                <span class="type">Text</span>(<span class="string">"Add Task"</span>)</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="type">ForEach</span>(tasks) &#123; task <span class="keyword">in</span></span><br><span class="line">                <span class="type">Text</span>(task.name)</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><ul>
+<li>Binding을 사용하면 View와 View Model간의 양방향 연결을 만들 수 있습니다.<br> <code>View</code> ↔ <code>View Model</code></li>
+<li>연결을 맺을 property에 Binding을 선언하고, <code>$</code>연산자를 사용하여 정의합니다.</li>
+<li>좀 더 복잡한 구성(여러 property가 있거나 여러 뷰에서 공유해야하는 property가 있는 경우)인 경우 <a href="https://developer.apple.com/documentation/swiftui/objectbinding" target="_blank" rel="noopener">@ObjectBinding</a>을 대신 사용하면 좋습니다.</li>
+</ul>
+<p><strong>Examples</strong><br><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ContentView</span> : <span class="title">View</span> </span>&#123;</span><br><span class="line">    @<span class="type">State</span> <span class="keyword">private</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">"\(self.count)"</span>)</span><br><span class="line">                .font(.title)</span><br><span class="line">            </span><br><span class="line">            <span class="type">Counter</span>(<span class="built_in">count</span>: $<span class="built_in">count</span>) <span class="comment">// binding</span></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Counter</span> : <span class="title">View</span> </span>&#123;</span><br><span class="line">    @<span class="type">Binding</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(action: &#123;</span><br><span class="line">            <span class="keyword">self</span>.<span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">        &#125;) &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">"Count"</span>)</span><br><span class="line">            </span><br><span class="line">        &#125;.padding(<span class="number">12</span>)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://euler37.github.io/posts/swiftui-getting-started/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jisu Kim">
@@ -363,14 +555,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-29 11:36 11:36:00" itemprop="dateCreated datePublished" datetime="2019-06-29T11:36:00+09:00">2019-06-29 11:36</time>
+              <time title="Erstellt: 2019-06-29 11:36 11:36:00" itemprop="dateCreated datePublished" datetime="2019-06-29T11:36:00+09:00">2019-06-29 11:36</time>
             
 
             
@@ -385,14 +577,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/App/" itemprop="url" rel="index"><span itemprop="name">App</span></a></span>
 
                 
                 
-                  , 
+                  . 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/App/SwiftUI/" itemprop="url" rel="index"><span itemprop="name">SwiftUI</span></a></span>
@@ -413,7 +605,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <span class="post-meta-item-text">Comments: </span>
+                <span class="post-meta-item-text">Kommentare: </span>
                 <a href="/posts/swiftui-getting-started/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/swiftui-getting-started/" itemprop="commentCount"></span>
                 </a>
@@ -519,7 +711,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/word-conversion/">
+    <link itemprop="mainEntityOfPage" href="https://euler37.github.io/posts/word-conversion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jisu Kim">
@@ -557,14 +749,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-12 07:41 07:41:00" itemprop="dateCreated datePublished" datetime="2019-06-12T07:41:00+09:00">2019-06-12 07:41</time>
+              <time title="Erstellt: 2019-06-12 07:41 07:41:00" itemprop="dateCreated datePublished" datetime="2019-06-12T07:41:00+09:00">2019-06-12 07:41</time>
             
 
             
@@ -579,7 +771,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
@@ -600,7 +792,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <span class="post-meta-item-text">Comments: </span>
+                <span class="post-meta-item-text">Kommentare: </span>
                 <a href="/posts/word-conversion/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/word-conversion/" itemprop="commentCount"></span>
                 </a>
@@ -699,7 +891,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/lifeboat/">
+    <link itemprop="mainEntityOfPage" href="https://euler37.github.io/posts/lifeboat/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jisu Kim">
@@ -737,14 +929,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-08 19:31 19:31:00" itemprop="dateCreated datePublished" datetime="2019-06-08T19:31:00+09:00">2019-06-08 19:31</time>
+              <time title="Erstellt: 2019-06-08 19:31 19:31:00" itemprop="dateCreated datePublished" datetime="2019-06-08T19:31:00+09:00">2019-06-08 19:31</time>
             
 
             
@@ -759,7 +951,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
@@ -780,7 +972,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <span class="post-meta-item-text">Comments: </span>
+                <span class="post-meta-item-text">Kommentare: </span>
                 <a href="/posts/lifeboat/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/lifeboat/" itemprop="commentCount"></span>
                 </a>
@@ -883,7 +1075,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/best-time-to-buy-and-sell-stock/">
+    <link itemprop="mainEntityOfPage" href="https://euler37.github.io/posts/best-time-to-buy-and-sell-stock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jisu Kim">
@@ -921,14 +1113,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-08 18:16 18:16:00" itemprop="dateCreated datePublished" datetime="2019-06-08T18:16:00+09:00">2019-06-08 18:16</time>
+              <time title="Erstellt: 2019-06-08 18:16 18:16:00" itemprop="dateCreated datePublished" datetime="2019-06-08T18:16:00+09:00">2019-06-08 18:16</time>
             
 
             
@@ -943,7 +1135,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
@@ -964,7 +1156,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <span class="post-meta-item-text">Comments: </span>
+                <span class="post-meta-item-text">Kommentare: </span>
                 <a href="/posts/best-time-to-buy-and-sell-stock/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/best-time-to-buy-and-sell-stock/" itemprop="commentCount"></span>
                 </a>
@@ -1047,188 +1239,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/group-anagrams/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jisu Kim">
-      <meta itemprop="description" content="What I am interested in and love to ❤️">
-      <meta itemprop="image" content="/images/me3.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I AM JISU">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/group-anagrams/" class="post-title-link" itemprop="url">Group Anagrams</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-08 17:02 17:02:00" itemprop="dateCreated datePublished" datetime="2019-06-08T17:02:00+09:00">2019-06-08 17:02</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/posts/group-anagrams/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/group-anagrams/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://leetcode.com/problems/group-anagrams/" target="_blank" rel="noopener">https://leetcode.com/problems/group-anagrams/</a></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">groupAnagrams</span><span class="params">(self, strs: [str])</span> -&gt; [[str]]:</span></span><br><span class="line">    d = collections.defaultdict(list)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> strs:</span><br><span class="line">      key = <span class="string">''</span>.join(sorted(word))</span><br><span class="line">      d[key].append(word)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> list(d.values())</span><br></pre></td></tr></table></figure>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
-<li>Time Complexity: $O(n)$</li>
-<li>Space Complexity: $O(n)$</li>
-</ul>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p>The <code>d.values()</code> returns an object called dict_values not list.<br>If a list is required as a return value,<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list(d.values())</span><br></pre></td></tr></table></figure></p>
-<p>can return a value as the list.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -1273,7 +1288,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">149</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -1310,7 +1325,7 @@
                       
                     
                     <span class="site-state-item-count">12</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   
                 </div>
               
@@ -1351,7 +1366,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1363,7 +1378,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1371,7 +1386,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
 
 
 

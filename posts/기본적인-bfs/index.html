@@ -106,11 +106,11 @@
   <meta name="description" content="parent[i] 는 i의 부모를 나타냄 (i이전에 들렀던)dist[i]는 start로부터 i까지의 거리 q가지고 이짓거리 하는게 왜 최단거리냡q에 들어가 있는 것들은 다 start로부터 같은 거리그니까 q에는 start로부터 0인 지점들어갔다가 나오고 1인지점 들어갔다가 나오고2인지점 들어갔다가 나오고 이러니까 ㅋㅋㅋ 최단거리일 수 밖에 만약 경로가 없을">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BFS의 기본 경로">
-<meta property="og:url" content="https://zisukim.github.io/posts/기본적인-bfs/index.html">
+<meta property="og:url" content="https://euler37.github.io/posts/기본적인-bfs/index.html">
 <meta property="og:site_name" content="I AM JISU">
 <meta property="og:description" content="parent[i] 는 i의 부모를 나타냄 (i이전에 들렀던)dist[i]는 start로부터 i까지의 거리 q가지고 이짓거리 하는게 왜 최단거리냡q에 들어가 있는 것들은 다 start로부터 같은 거리그니까 q에는 start로부터 0인 지점들어갔다가 나오고 1인지점 들어갔다가 나오고2인지점 들어갔다가 나오고 이러니까 ㅋㅋㅋ 최단거리일 수 밖에 만약 경로가 없을">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-08T21:12:11.375Z">
+<meta property="og:updated_time" content="2019-03-08T21:12:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFS의 기본 경로">
 <meta name="twitter:description" content="parent[i] 는 i의 부모를 나타냄 (i이전에 들렀던)dist[i]는 start로부터 i까지의 거리 q가지고 이짓거리 하는게 왜 최단거리냡q에 들어가 있는 것들은 다 start로부터 같은 거리그니까 q에는 start로부터 0인 지점들어갔다가 나오고 1인지점 들어갔다가 나오고2인지점 들어갔다가 나오고 이러니까 ㅋㅋㅋ 최단거리일 수 밖에 만약 경로가 없을">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://zisukim.github.io/posts/기본적인-bfs/">
+  <link rel="canonical" href="https://euler37.github.io/posts/기본적인-bfs/">
 
 
 
@@ -202,7 +202,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,7 +230,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -247,7 +247,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
 
   </li>
         
@@ -264,7 +264,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zisukim.github.io/posts/기본적인-bfs/">
+    <link itemprop="mainEntityOfPage" href="https://euler37.github.io/posts/기본적인-bfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jisu Kim">
@@ -361,14 +361,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2014-09-13 09:05 09:05:00" itemprop="dateCreated datePublished" datetime="2014-09-13T09:05:00+09:00">2014-09-13 09:05</time>
+              <time title="Erstellt: 2014-09-13 09:05 09:05:00" itemprop="dateCreated datePublished" datetime="2014-09-13T09:05:00+09:00">2014-09-13 09:05</time>
             
 
             
@@ -383,7 +383,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Problem-Solving/" itemprop="url" rel="index"><span itemprop="name">Problem Solving</span></a></span>
@@ -404,7 +404,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <span class="post-meta-item-text">Comments: </span>
+                <span class="post-meta-item-text">Kommentare: </span>
                 <a href="/posts/기본적인-bfs/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/기본적인-bfs/" itemprop="commentCount"></span>
                 </a>
@@ -551,7 +551,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">149</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -588,7 +588,7 @@
                       
                     
                     <span class="site-state-item-count">12</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   
                 </div>
               
@@ -629,7 +629,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -641,7 +641,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -649,7 +649,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
 
 
 
@@ -770,7 +770,7 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://zisukim.github.io/posts/기본적인-bfs/";
+    this.page.url = "https://euler37.github.io/posts/기본적인-bfs/";
     this.page.identifier = "posts/기본적인-bfs/";
     this.page.title = 'BFS의 기본 경로';
     };
