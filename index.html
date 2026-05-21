@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zisu Kim</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:      #1c1c1e;
+      --muted:    #6b6b6b;
+      --faint:    #9a9a9a;
+      --rule:     #d8d4cc;
+      --bg:       #f7f5f0;
+      --paper:    #ffffff;
+      --accent:   #2a4a7f;   /* deep academic blue — single accent */
+      --serif:    'EB Garamond', Georgia, serif;
+      --sans:     'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ─── LAYOUT ─── */
+    .site-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      padding: 3.5rem 0 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.4rem;
+      align-items: end;
+      padding-bottom: 2rem;
+    }
+
+    .avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--rule);
+      border: 2px solid var(--rule);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .header-text {}
+
+    .header-name {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: .01em;
+      line-height: 1.2;
+      margin-bottom: .35rem;
+    }
+
+    .header-role {
+      font-size: .85rem;
+      color: var(--muted);
+      letter-spacing: .03em;
+      margin-bottom: .5rem;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem .9rem;
+      font-size: .8rem;
+      color: var(--faint);
+    }
+
+    .header-meta a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .header-meta a:hover { border-color: var(--accent); }
+
+    /* ─── TAB NAV ─── */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      margin-top: 0;
+      list-style: none;
+    }
+
+    .tab-nav li {}
+
+    .tab-nav button {
+      font-family: var(--sans);
+      font-size: .83rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: .8rem 1.2rem .7rem;
+      cursor: pointer;
+      color: var(--muted);
+      transition: color .2s, border-color .2s;
+      position: relative;
+      top: 1px;               /* sits on the header border */
+    }
+
+    .tab-nav button:hover { color: var(--ink); }
+
+    .tab-nav button.active {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    /* ─── PAGES ─── */
+    .tab-page { display: none; padding: 3rem 0 5rem; }
+    .tab-page.active { display: block; }
+
+    /* ─── HOME PAGE ─── */
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .bio {
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #2e2e2e;
+    }
+
+    .bio p + p { margin-top: 1em; }
+
+    .bio a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color .2s; }
+    .bio a:hover { border-color: var(--accent); }
+
+    /* Sidebar */
+    .sidebar { border-left: 1px solid var(--rule); padding-left: 2rem; }
+
+    .sidebar-section + .sidebar-section { margin-top: 2rem; }
+
+    .sidebar-label {
+      font-size: .72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--faint);
+      margin-bottom: .6rem;
+    }
+
+    .sidebar-item {
+      font-size: .85rem;
+      line-height: 1.5;
+      color: var(--muted);
+      padding: .25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .sidebar-item:last-child { border-bottom: none; }
+    .sidebar-item strong { color: var(--ink); font-weight: 500; }
+
+    .interest-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .tag {
+      font-size: .75rem;
+      padding: .2rem .65rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--muted);
+      background: var(--paper);
+    }
+
+    /* News */
+    .news-list { list-style: none; }
+    .news-list li {
+      font-size: .85rem;
+      line-height: 1.5;
+      padding: .4rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: .6rem;
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-date { color: var(--faint); font-size: .78rem; padding-top: .05rem; white-space: nowrap; }
+
+    /* ─── SECTION HEADINGS (shared) ─── */
+    .section-head {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--ink);
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.6rem;
+    }
+
+    .section-block + .section-block { margin-top: 3rem; }
+
+    /* ─── CV PAGE ─── */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-entry:last-child { border-bottom: none; }
+
+    .cv-year {
+      font-size: .82rem;
+      color: var(--faint);
+      padding-top: .18rem;
+      line-height: 1.4;
+    }
+
+    .cv-body {}
+    .cv-body h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: .18rem;
+    }
+    .cv-body p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .cv-body .cv-tag {
+      display: inline-block;
+      font-size: .72rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: .3rem;
+    }
+
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .82rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: .4rem .9rem;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: background .2s, color .2s;
+    }
+    .cv-download:hover { background: var(--accent); color: #fff; }
+
+    /* ─── PROJECTS PAGE ─── */
+    .project-entry {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .project-entry:last-child { border-bottom: none; }
+
+    .project-top {
+      display: flex;
+      align-items: baseline;
+      gap: .8rem;
+      margin-bottom: .3rem;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .project-status {
+      font-size: .72rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .15rem .5rem;
+      border-radius: 2px;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+    .project-status.ongoing {
+      border-color: #2a4a7f44;
+      color: var(--accent);
+      background: #2a4a7f0a;
+    }
+
+    .project-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 620px;
+    }
+
+    .project-meta {
+      margin-top: .5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem .8rem;
+      font-size: .78rem;
+      color: var(--faint);
+    }
+
+    .project-meta a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .project-meta a:hover { border-color: var(--accent); }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.8rem 0;
+      font-size: .78rem;
+      color: var(--faint);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .site-footer a { color: var(--faint); text-decoration: none; }
+    .site-footer a:hover { color: var(--ink); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .header-inner { grid-template-columns: 1fr; }
+      .avatar { display: none; }
+      .home-grid { grid-template-columns: 1fr; }
+      .sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 2rem; }
+      .tab-nav button { padding: .8rem .7rem; font-size: .75rem; }
+      .cv-entry { grid-template-columns: 80px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="site-wrap">
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div class="avatar">🧑‍🎓</div>
+      <div class="header-text">
+        <div class="header-name">Zisu Kim</div>
+        <div class="header-role">Ph.D. Student, Management Information Systems · Fox School of Business, Temple University</div>
+        <div class="header-meta">
+          <span>📍 Philadelphia, PA</span>
+          <a href="mailto:zisu@temple.edu">✉ zisu@temple.edu</a>
+          <a href="https://scholar.google.com/citations?user=dVPhdtAAAAAJ&hl=ko&oi=ao" target="_blank">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/zisu-kim/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab navigation sits on the header bottom border -->
+    <nav>
+      <ul class="tab-nav">
+        <li><button class="active" data-tab="home">Home</button></li>
+        <li><button data-tab="cv">CV</button></li>
+        <li><button data-tab="projects">Research</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════ HOME ════════════════════════════════ -->
+  <div class="tab-page active" id="tab-home">
+    <div class="home-grid">
+
+      <!-- Bio -->
+      <div>
+        <div class="bio">
+          <p>
+            I am a Ph.D. student in <a href="https://fox.temple.edu/departments/mis/">Management Information Systems</a>
+            at the <a href="https://fox.temple.edu/">Fox School of Business, Temple University</a>.
+          </p>
+          <p>
+            My research interests lie in <strong>Cybersecurity, Human-Technology Interaction, and Privacy Enhancing Technologies</strong>.
+            I am broadly interested in how individuals perceive and respond to digital threats and privacy risks,
+            and how the design of AI-mediated systems shapes user behavior and trust.
+          </p>
+          <p>
+            Prior to my doctoral studies, I received my M.S. in Business and Technology Management
+            from KAIST (2023) and my B.S. in PR &amp; Advertising from Sookmyung Women's University (2016).
+          </p>
+        </div>
+
+        <!-- Recent news -->
+        <div style="margin-top:2.5rem;">
+          <div class="section-head">News</div>
+          <ul class="news-list">
+            <li>
+              <span class="news-date">Aug 2026</span>
+              <span>Paper accepted at AMCIS 2026 — <em>When Anthropomorphic Realism Backfires</em>.</span>
+            </li>
+            <li>
+              <span class="news-date">Jun 2026</span>
+              <span>Paper accepted at SCECR 2026 — <em>When Anthropomorphic Realism Backfires</em>.</span>
+            </li>
+            <li>
+              <span class="news-date">Spring 2026</span>
+              <span>Received Temple University RAIS Grant ($1,000).</span>
+            </li>
+            <li>
+              <span class="news-date">Aug 2025</span>
+              <span>Paper accepted at AMCIS 2025 (Top 25%, SIG HCI) — <em>When Recommendation Know You Too Well</em>.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <div class="sidebar-section">
+          <div class="sidebar-label">Research Interests</div>
+          <div class="interest-tags">
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">Human-Technology Interaction</span>
+            <span class="tag">Privacy Enhancing Technologies</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-label">Education</div>
+          <div class="sidebar-item">
+            <strong>Ph.D. MIS</strong><br>
+            Temple University, 2024–present
+          </div>
+          <div class="sidebar-item">
+            <strong>M.S. Business &amp; Technology Mgmt</strong><br>
+            KAIST, 2022–2023
+          </div>
+          <div class="sidebar-item">
+            <strong>B.S. PR &amp; Advertising</strong><br>
+            Sookmyung Women's University, 2012–2016
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-label">Contact</div>
+          <div class="sidebar-item">
+            Room 208i, Speakman Hall<br>
+            1801 Liacouras Walk<br>
+            Philadelphia, PA 19122
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ CV ════════════════════════════════ -->
+  <div class="tab-page" id="tab-cv">
+
+    <a href="#" class="cv-download">↓ Download full CV (PDF)</a>
+
+    <!-- Education -->
+    <div class="section-block">
+      <div class="section-head">Education</div>
+      <div class="cv-entry">
+        <div class="cv-year">2024 –<br>present</div>
+        <div class="cv-body">
+          <h3>Ph.D. in Management Information Systems</h3>
+          <p>Fox School of Business, Temple University · Philadelphia, PA</p>
+          <span class="cv-tag">Doctoral</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2022 – 2023</div>
+        <div class="cv-body">
+          <h3>M.S. in Business and Technology Management</h3>
+          <p>College of Business, KAIST · Daejeon, South Korea</p>
+          <span class="cv-tag">Master's</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2012 – 2016</div>
+        <div class="cv-body">
+          <h3>B.S. in PR &amp; Advertising</h3>
+          <p>Sookmyung Women's University · Seoul, South Korea</p>
+          <span class="cv-tag">Undergraduate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conference Papers -->
+    <div class="section-block">
+      <div class="section-head">Conference Papers</div>
+      <div class="cv-entry">
+        <div class="cv-year">Aug 2026<br>Jun 2026</div>
+        <div class="cv-body">
+          <h3>When Anthropomorphic Realism Backfires: Surface vs. Interpretive Ambiguity in AI-mediated IT Support Requests</h3>
+          <p>32nd Americas Conference on Information Systems (AMCIS)<br>
+          Statistical Challenges in Electronic Commerce Research (SCECR)</p>
+          <span class="cv-tag">Conference Paper</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">Aug 2025</div>
+        <div class="cv-body">
+          <h3>When Recommendation Know You Too Well: Explanation Types, Privacy Concerns, and Eye-tracking Evidence in Personalized Systems</h3>
+          <p>31st Americas Conference on Information Systems (AMCIS)<br>
+          <em>Top 25% Paper · SIG HCI (Human-Computer Interaction)</em></p>
+          <span class="cv-tag">Conference Paper</span>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">Jul 2023</div>
+        <div class="cv-body">
+          <h3>Measuring the Emotional Impact of Phishing Emails through Face Reader and Eye Tracker</h3>
+          <p>Production and Operations Management Society (POMS)</p>
+          <span class="cv-tag">Conference Paper</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honors & Awards -->
+    <div class="section-block">
+      <div class="section-head">Honors &amp; Awards</div>
+      <div class="cv-entry">
+        <div class="cv-year">Spring 2026</div>
+        <div class="cv-body">
+          <h3>Research Advancement Impact Seedfunding (RAIS) — $1,000</h3>
+          <p>Temple University</p>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">Spring 2025</div>
+        <div class="cv-body">
+          <h3>Research Advancement Impact Seedfunding (RAIS) — $2,000</h3>
+          <p>Temple University</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="section-block">
+      <div class="section-head">Work Experience</div>
+      <div class="cv-entry">
+        <div class="cv-year">Jul 2023 –<br>Jun 2024</div>
+        <div class="cv-body">
+          <h3>Korea Institute of Science and Technology Information (KISTI)</h3>
+          <p>Seoul, South Korea</p>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">Jan 2016 –<br>Nov 2020</div>
+        <div class="cv-body">
+          <h3>HS Ad Inc.</h3>
+          <p>Seoul, South Korea</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════ RESEARCH ════════════════════════════════ -->
+  <div class="tab-page" id="tab-projects">
+
+    <div class="section-block">
+      <div class="section-head">Conference Papers</div>
+
+      <div class="project-entry">
+        <div class="project-top">
+          <span class="project-title">When Anthropomorphic Realism Backfires: Surface vs. Interpretive Ambiguity in AI-mediated IT Support Requests</span>
+          <span class="project-status ongoing">Forthcoming</span>
+        </div>
+        <p class="project-desc">
+          Examines how varying levels of anthropomorphic realism in AI agents affect user behavior during IT support interactions, distinguishing between surface-level and interpretive ambiguity cues.
+        </p>
+        <div class="project-meta">
+          <span>AMCIS 2026 · SCECR 2026</span>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-top">
+          <span class="project-title">When Recommendation Know You Too Well: Explanation Types, Privacy Concerns, and Eye-tracking Evidence in Personalized Systems</span>
+          <span class="project-status">Published</span>
+        </div>
+        <p class="project-desc">
+          Investigates how different explanation types in personalized recommendation systems affect users' privacy concerns, using eye-tracking methodology to capture behavioral responses.
+        </p>
+        <div class="project-meta">
+          <span><em>AMCIS 2025</em> · Top 25%, SIG HCI</span>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-top">
+          <span class="project-title">Measuring the Emotional Impact of Phishing Emails through Face Reader and Eye Tracker</span>
+          <span class="project-status">Published</span>
+        </div>
+        <p class="project-desc">
+          Employs physiological and eye-tracking measures to quantify users' emotional responses to phishing email attempts, contributing to our understanding of cybersecurity threat perception.
+        </p>
+        <div class="project-meta">
+          <span><em>POMS 2023</em></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <span>© 2026 Zisu Kim</span>
+    <span>Last updated: May 2026</span>
+  </footer>
+
+</div><!-- /site-wrap -->
+
+<script>
+  const tabs = document.querySelectorAll('.tab-nav button');
+  const pages = document.querySelectorAll('.tab-page');
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      pages.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
